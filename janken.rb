@@ -21,7 +21,7 @@ class Janken
 		private
 
 		def judge(user, cpu)
-			Judge.new(user_hand(user), cpu_hand(cpu))
+			Judge.new(hand_name(user), hand_name(cpu))
 		end
 
 		def choose_hand!(object)
