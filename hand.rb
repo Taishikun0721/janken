@@ -18,5 +18,3 @@ class Hand
 		hand_validator.run!(ALL_HANDS, name)
 	end
 end
-
-
