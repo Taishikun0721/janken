@@ -1,0 +1,11 @@
+name: create pull request to develop
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubunts-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@2
+      - run: npm install -g bats
+      - run: bats -v
+
