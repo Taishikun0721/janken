@@ -22,7 +22,7 @@ class User
 	end
 
 	def re_choose_hand!
-		puts 'もう一度入力して下さい。gu choki pa'
+		puts 'もう一度入力して下さい。gu or choki or pa'
 
 		choose_hand!
 	end
