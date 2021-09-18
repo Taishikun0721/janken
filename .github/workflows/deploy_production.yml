@@ -1,10 +1,23 @@
-name: learn-github-actions
-on: [push]
+name: create pull request to develop
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
 jobs:
-  check-bats-version:
+  create-pull-request-for-ex-release-diff:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - name: create release pull request
+        uses: bakunyo/git-pr-release-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_PR_RELEASE_BRANCH_PRODUCTION: master
+          GIT_PR_RELEASE_BRANCH_STAGING: develop
+          GIT_PR_RELEASE_BRANCH_LABELS: release
+          GIT_PR_RELEASE_TEMPLATE: .git-pr-release-template
