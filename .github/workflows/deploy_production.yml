@@ -1,4 +1,4 @@
-name: create pull request to develop
+name: create pull request to develop when hotfix released
 
 on:
   pull_request:
@@ -7,11 +7,11 @@ on:
       - master
 
 jobs:
-  create-pull-request-for-ex-release-diff:
+  create-pull-request:
     runs-on: ubuntu-latest
+    if: contains(github.head_ref, 'hotfi')
     steps:
       - uses: actions/checkout@v2
-      - name: create pull request
         run: |
           git switch master
           gh pr create -t 'リリース差分取り込み master --> develop' -b '差分取り込み用ブランチです' -l 'release' -B 'develop'
