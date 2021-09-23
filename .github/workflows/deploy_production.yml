@@ -9,7 +9,7 @@ on:
 jobs:
   create-pull-request:
     runs-on: ubuntu-latest
-    if: contains(github.head_ref, 'hotfi')
+    if: contains(github.head_ref, 'develop')
     steps:
       - uses: actions/checkout@v2
       - name: create pull request
