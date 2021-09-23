@@ -15,4 +15,4 @@ jobs:
       - name: create pull request
         run: |
           git switch master
-          gh pr create -t 'リリース差分取り込み master --> develop' -b '差分取り込み用ブランチです' -l 'release'
+          gh pr create -t 'リリース差分取り込み master --> develop' -b '差分取り込み用ブランチです' -l 'release' -B 'develop'
