@@ -9,10 +9,10 @@ on:
 jobs:
   create-pull-request-for-ex-release-diff:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: create pull request
         run: |
           git switch master
           gh pr create -t 'リリース差分取り込み master --> develop' -b '差分取り込み用ブランチです' -l 'release' -B 'develop'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
