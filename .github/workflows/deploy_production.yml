@@ -10,6 +10,7 @@ jobs:
   create-pull-request-for-ex-release-diff:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: create pull request
         run: |
           git switch master
