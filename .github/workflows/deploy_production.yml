@@ -21,6 +21,6 @@ jobs:
                       -b '差分取り込み用PRです' \
                       -l 'release' \
                       -B 'develop' \
-                      -r miketa-webprgr, DaichiSaito
+                      -r miketa-webprgr,DaichiSaito
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
