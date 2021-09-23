@@ -13,10 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
       - name: swich branch and create pull request
         run: |
           git switch master
-          gh pr create -t 'リリース差分取り込み master --> develop' -b '差分取り込み用PRです' -l 'release' -B 'develop'
+          gh pr create -t 'リリース差分取り込み master --> develop' \
+                      -b '差分取り込み用PRです' \
+                      -l 'release' \
+                      -B 'develop' \
+                      -a ${{ github.actor }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
