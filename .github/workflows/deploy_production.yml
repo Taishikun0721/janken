@@ -9,7 +9,7 @@ on:
 jobs:
   create-pull-request:
     runs-on: ubuntu-latest
-    if: github.head_ref == 'hotfi'
+    if: github.head_ref == 'hotfix'
     steps:
       - uses: actions/checkout@v2
       - name: swich branch and create pull request
