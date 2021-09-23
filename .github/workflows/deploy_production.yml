@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/hotfix'
     steps:
-      - name: swich branch and create pull request
       - uses: actions/checkout@v2
+      - name: swich branch and create pull request
         run: |
           git switch master
           gh pr create -t 'リリース差分取り込み master --> develop' -b '差分取り込み用PRです' -l 'release' -B 'develop'
