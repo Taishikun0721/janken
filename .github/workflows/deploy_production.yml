@@ -9,12 +9,12 @@ on:
 jobs:
   create-pull-request:
     runs-on: ubuntu-latest
-    if: github.ref == 'hotfix'
+    if: github.ref == 'refs/heads/hotfix'
     steps:
+      - name: swich branch and create pull request
       - uses: actions/checkout@v2
-      - name: create pull request
         run: |
           git switch master
-          gh pr create -t 'リリース差分取り込み master --> develop' -b '差分取り込み用ブランチです' -l 'release' -B 'develop'
+          gh pr create -t 'リリース差分取り込み master --> develop' -b '差分取り込み用PRです' -l 'release' -B 'develop'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
